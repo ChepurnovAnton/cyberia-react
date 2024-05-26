@@ -1,0 +1,19 @@
+@import '../../assets//variables';
+
+.header {
+  display: grid;
+  width: 1420px;
+  grid-template-columns: 135px auto;
+}
+
+.navigation_list {
+  display: flex;
+  justify-self: center;
+  gap: 60px;
+}
+
+.navigation_element {
+  color: $white;
+  font-weight: 400;
+  font-size: 18px;
+}
