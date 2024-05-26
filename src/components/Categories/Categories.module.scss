@@ -1,0 +1,36 @@
+@import '../../assets/_variables.scss';
+
+.categories_list {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 52px;
+}
+
+.category {
+  border-radius: 7px;
+  padding: 10px 29px;
+  height: 49px;
+  box-shadow: 8px 15px 29px 0 rgba(23, 27, 44, 0.41);
+  background: $button;
+  border: none;
+  font-weight: 400;
+  font-size: 24px;
+  color: $white2;
+}
+
+.active {
+  border-radius: 7px;
+  padding: 10px 29px;
+  height: 49px;
+  box-shadow: 8px 15px 29px 0 rgba(23, 27, 44, 0.41);
+  background: $button-active;
+  border: none;
+  font-weight: 400;
+  font-size: 24px;
+  color: $white2;
+}
+
+
+.category:hover {
+  background: rgba(177, 177, 177, 0.219);
+}

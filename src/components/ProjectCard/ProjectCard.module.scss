@@ -1,0 +1,39 @@
+@import '../../assets/variables';
+
+.card {
+  display: flex;
+  position: relative;
+}
+
+
+.card_image {
+  width: 386px;
+  height: 378px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.title {
+  display: flex;
+  position: absolute;
+  border-radius: 5px;
+  width: 122px;
+  height: 122px;
+  background: #313341;
+  right: 27px;
+  top: 23px;
+  font-weight: 600;
+  font-size: 24px;
+  color: #fff;
+  font-family: $fira-sans;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  word-wrap: normal;
+}
+
+.title img {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+}
