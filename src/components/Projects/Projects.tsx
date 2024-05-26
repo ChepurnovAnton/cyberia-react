@@ -9,15 +9,15 @@ const Projects = () => {
     (state: RootState) => state.projectsSlice.projects
   );
 
-  const category = useSelector((state) => state.projectsSlice.activeCategory);
+  const category = useSelector((state: RootState) => state.projectsSlice.activeCategory);
 
-  const [filterData, setFilterData] = useState([]);
+  const [filterProjects, setFilterData] = useState([]);
 
-  const onFilterData = (id) => {
-    const a = projects.filter((item) =>
+  const onFilterProjects = (id) => {
+    const filter = projects.filter((item) =>
       item.categories.some((el) => el.id === id)
     );
-    setFilterData(a);
+    setFilterData(filter);
   };
 
   useEffect(() => {
@@ -27,13 +27,13 @@ const Projects = () => {
   }, [projects]);
 
   useEffect(() => {
-    onFilterData(category);
+    onFilterProjects(category);
   }, [category]);
 
   return (
     <section className={styles.projects}>
-      {filterData &&
-        filterData.map((project) => (
+      {
+      filterProjects.map((project) => (
           <ProjectCard
             key={project.id}
             image={project.image}

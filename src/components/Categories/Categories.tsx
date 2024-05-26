@@ -7,13 +7,13 @@ import { changeCategory } from "../../redux/slices/projectsSlice";
 const Categories = () => {
   const dispacth = useDispatch();
 
-  const [activeCategory, setActiveCategory] = useState("Продвижение");
+  const [activeCategory, setActiveCategory] = useState();
   const categories = useSelector(
     (state: RootState) => state.categoriesSlice.categories
   );
 
   const handleChangeCategory = (id) => {
-    // setActiveCategory(name);
+    setActiveCategory(id);
     dispacth(changeCategory(id));
   };
 
@@ -23,7 +23,7 @@ const Categories = () => {
         <li key={category.id}>
           <button
             className={
-              activeCategory === category.name ? styles.active : styles.category
+              activeCategory === category.id ? styles.active : styles.category
             }
             onClick={() => handleChangeCategory(category.id)}
           >
