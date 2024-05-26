@@ -5,9 +5,9 @@ import Cases from "./components/Cases/Cases";
 function App() {
   return (
     <div>
-        <Header />
-        <Breadcrumbs style={{ marginTop: "65px" }} />
-        <Cases />
+      <Header />
+      <Breadcrumbs style={{ marginTop: "65px" }} />
+      <Cases />
     </div>
   );
 }
