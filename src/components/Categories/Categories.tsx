@@ -2,18 +2,21 @@ import styles from "./Categories.module.scss";
 import { useState } from "react";
 import type { RootState } from "../../redux/store";
 import { useSelector, useDispatch } from "react-redux";
+import { changeCategory } from "../../redux/slices/projectsSlice";
 
 const Categories = () => {
   const dispacth = useDispatch();
-  
+
   const [activeCategory, setActiveCategory] = useState("Продвижение");
   const categories = useSelector(
     (state: RootState) => state.categoriesSlice.categories
   );
 
-  const changeCategory = (name) => {
-    setActiveCategory(name);
+  const handleChangeCategory = (id) => {
+    // setActiveCategory(name);
+    dispacth(changeCategory(id));
   };
+
   return (
     <ul className={styles.categories_list}>
       {categories.map((category) => (
@@ -22,7 +25,7 @@ const Categories = () => {
             className={
               activeCategory === category.name ? styles.active : styles.category
             }
-            onClick={() => changeCategory(category.name)}
+            onClick={() => handleChangeCategory(category.id)}
           >
             {category.name}
           </button>
