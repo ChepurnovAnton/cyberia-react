@@ -1,0 +1,13 @@
+@import '../../assets/variables';
+
+.breadcrumbs {
+  font-weight: 400;
+  font-size: 18px;
+  color: $breadcrumbs;
+  display: flex;
+  gap: 5px;
+}
+
+.breadcrumbs div:last-child {
+  color: $breadcrumbsAccent;
+}

@@ -12,7 +12,7 @@ const Projects = () => {
     (state: RootState) => state.projectsSlice.activeCategory
   );
 
-  const { data = [], isLoading } = useGetCategoriesQuery("projects");
+  const { data = [], error, isLoading } = useGetCategoriesQuery("projects");
 
   const [projectsData, setProjectsData] = useState([]);
   const [filterProjects, setFilterData] = useState([]);
@@ -39,6 +39,10 @@ const Projects = () => {
   useEffect(() => {
     onFilterProjects(categoryId);
   }, [categoryId]);
+
+  if (error) {
+    return `${error.error}`;
+  }
 
   return (
     <>

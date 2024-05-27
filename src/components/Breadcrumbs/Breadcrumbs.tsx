@@ -1,15 +1,19 @@
-import { useLocation } from "react-router-dom";
+import styles from "./Breadcrumbs.module.scss";
 
-const Breadcrumbs = (props) => {
-const location = useLocation()
-
+const Breadcrumbs = ({ breadcrumbsData, pathName, ...props }) => {
   return (
-    <div>
-
-    </div>
-  )
-  
-
+    <nav {...props}>
+      <div className={styles.breadcrumbs}>
+        <div>Главная</div>
+        <div>/</div>
+        <div>
+          {breadcrumbsData.map((item) =>
+            item.pathName === pathName ? item.title : null
+          )}
+        </div>
+      </div>
+    </nav>
+  );
 };
 
 export default Breadcrumbs;
