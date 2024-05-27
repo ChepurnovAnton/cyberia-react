@@ -9,26 +9,28 @@ import Box from "@mui/material/Box";
 
 const Projects = () => {
   const { data = [], error, isLoading } = useGetCategoriesQuery("projects");
-
-  if (error) {
-    throw error;
-  }
-
+  const [filterProjects, setFilterData] = useState([]);
+  
   const categoryId = useSelector(
     (state: RootState) => state.projectsSlice.activeCategory
   );
-
-  const [filterProjects, setFilterData] = useState([]);
-
+  
   useEffect(() => {
-    setFilterData(data.items);
-  }, [data]);
+    const getData = async () => {
+      const projects = await data.items;
+      setFilterData(projects);
+    };
+    
+    getData();
+  }, [data.items]);
+  
 
-  const onFilterProjects = async (id) => {
-    const filter = await data.items.filter((item) =>
+  const onFilterProjects = (id) => {
+    const filter = filterProjects.filter((item) =>
       item.categories.some((el) => el.id === id)
     );
     setFilterData(filter);
+    console.log(filter);
   };
 
   useEffect(() => {

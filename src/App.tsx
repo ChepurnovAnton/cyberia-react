@@ -1,14 +1,18 @@
+import { Route, Routes } from "react-router-dom";
+import MainPage from "./pages/MainPage/MainPage";
+import Contacts from "./pages/Contacts/Contacts";
 import Header from "./components/Header/Header";
-// import styles from "./App.module.scss";
-import Breadcrumbs from "./components/Breadcrumbs/Breadcrumbs";
-import Cases from "./components/Cases/Cases";
+import Services from "./pages/Services/Services";
 function App() {
   return (
-    <div>
+    <>
       <Header />
-      <Breadcrumbs style={{ marginTop: "65px" }} />
-      <Cases />
-    </div>
+      <Routes>
+        <Route path="/contacts" element={<Contacts />} />
+        <Route path="/" element={<MainPage />} />
+        <Route path="/services" element={<Services />} />
+      </Routes>
+    </>
   );
 }
 

@@ -1,17 +1,15 @@
 import styles from "./Header.module.scss";
-
-const navigations = ["Агенство", "Услуги", "Кейсы", "Блог", "Контакты"];
+import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
     <header className={styles.header}>
-      <img className={styles.logo} src="icon.svg" alt="icon" />
+      <Link to="/">
+        <img className={styles.logo} src="icon.svg" alt="icon" />
+      </Link>
       <nav className={styles.navigation_list}>
-        {navigations.map((navigationElement) => (
-          <a key={navigationElement} className={styles.navigation_element}>
-            {navigationElement}
-          </a>
-        ))}
+        <Link to="/contacts" className={styles.navigation_element}>Контакты</Link>
+        <Link to="/services" className={styles.navigation_element}>Услуги</Link>
       </nav>
     </header>
   );

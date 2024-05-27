@@ -1,5 +1,16 @@
+import { useLocation } from "react-router-dom";
+
 const Breadcrumbs = (props) => {
-  return <div {...props}>Breadcrumbs</div>;
+const location = useLocation()
+console.log(location);
+
+  return (
+    <div>
+
+    </div>
+  )
+  
+
 };
 
 export default Breadcrumbs;
