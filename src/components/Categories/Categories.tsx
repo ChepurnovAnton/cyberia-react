@@ -1,21 +1,23 @@
 import styles from "./Categories.module.scss";
 import { useState } from "react";
-import type { RootState } from "../../redux/store";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { changeCategory } from "../../redux/slices/projectsSlice";
+import { useGetCategoriesQuery } from "../../API/categories";
 
 const Categories = () => {
+  
   const dispacth = useDispatch();
-
+  const {data, error, isLoading} = useGetCategoriesQuery('project-categories')
   const [activeCategory, setActiveCategory] = useState();
-  const categories = useSelector(
-    (state: RootState) => state.categoriesSlice.categories
-  );
 
   const handleChangeCategory = (id) => {
     setActiveCategory(id);
     dispacth(changeCategory(id));
   };
+
+  if(isLoading) return null
+
+  const categories = data.items
 
   return (
     <ul className={styles.categories_list}>
@@ -34,5 +36,6 @@ const Categories = () => {
     </ul>
   );
 };
+
 
 export default Categories;
