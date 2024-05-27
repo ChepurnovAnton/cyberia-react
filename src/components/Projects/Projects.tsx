@@ -8,29 +8,32 @@ import CircularProgress from "@mui/material/CircularProgress";
 import Box from "@mui/material/Box";
 
 const Projects = () => {
-  const { data = [], error, isLoading } = useGetCategoriesQuery("projects");
-  const [filterProjects, setFilterData] = useState([]);
-  
   const categoryId = useSelector(
     (state: RootState) => state.projectsSlice.activeCategory
   );
-  
+
+  const { data = [], isLoading } = useGetCategoriesQuery("projects");
+
+  const [projectsData, setProjectsData] = useState([]);
+  const [filterProjects, setFilterData] = useState([]);
+
+  useEffect(() => {
+    setFilterData(projectsData);
+  }, [projectsData]);
+
   useEffect(() => {
     const getData = async () => {
       const projects = await data.items;
-      setFilterData(projects);
+      setProjectsData(projects);
     };
-    
     getData();
   }, [data.items]);
-  
 
   const onFilterProjects = (id) => {
-    const filter = filterProjects.filter((item) =>
+    const filter = projectsData.filter((item) =>
       item.categories.some((el) => el.id === id)
     );
     setFilterData(filter);
-    console.log(filter);
   };
 
   useEffect(() => {
