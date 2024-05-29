@@ -16,8 +16,7 @@ const CasesPage = () => {
     <div className={styles.cases_page}>
       <Header />
       <Cases />
-      <Forms />
-      <Footer />
+      {/* <Forms /> */}
     </div>
   );
 };

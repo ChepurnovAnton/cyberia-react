@@ -100,9 +100,7 @@ const Forms = () => {
           <Checkbox>Согласие на обработку персональных данных</Checkbox>
         </div>
         <Button value="Обсудить проект" className={styles.button_forms} />
-
-        {/* <div className={styles.button_forms}>
-        </div> */}
+        <Button value="Отправить" className={styles.button_forms_mobile} />
       </form>
     </section>
   );

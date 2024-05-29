@@ -12,15 +12,28 @@
   border-radius: 12px;
 
   @media (max-width: $breackpoint_xl) {
-    width: 327px;
-    height: 320px;
+    width: 306px;
+    height: 280px;
+  }
+
+  @media (max-width: $breackpoint_l) {
+    width: 328px;
+    height: 280px;
+  }
+
+  @media (max-width: $breackpoint_m) {
+    width: 500px;
+    height: 450px;
   }
 
   @media (max-width: $breackpoint_s) {
-    width: 327px;
+    width: 370px;
     height: 320px;
   }
-
+  @media (max-width: $breackpoint_mobile) {
+    width: 325px;
+    height: 320px;
+  }
 
 }
 

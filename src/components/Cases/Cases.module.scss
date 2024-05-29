@@ -1,8 +1,28 @@
 @import '../../assets/_variables.scss';
 
 .cases {
-  display: flex;
-  flex-direction: column;
+  width: 1240px;
+
+  @media (max-width: $breackpoint_xl) {
+    width: 1000px;
+  }
+
+  @media (max-width: $breackpoint_l) {
+    width: 700px;
+  }
+
+  @media (max-width: $breackpoint_m) {
+    width: 500px;
+  }
+
+  @media (max-width: $breackpoint_s) {
+    width: 375px;
+  }
+
+  @media (max-width: $breackpoint_mobile) {
+    width: 325px;
+    margin-left: 25px;
+  }
 }
 
 .title {
@@ -12,6 +32,7 @@
   margin-bottom: 65px;
 
   @media (max-width: $breackpoint_mobile) {
+    font-weight: 500;
     font-size: 21px;
     margin-bottom: 45px;
   }

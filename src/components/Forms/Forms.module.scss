@@ -25,6 +25,12 @@
 
   @media (max-width: $breackpoint_mobile) {
     height: 184px;
+    margin-bottom: 20px;
+  }
+
+  @media (max-width: $breackpoint_s) {
+    height: 184px;
+    margin-bottom: 20px;
   }
 }
 
@@ -34,13 +40,16 @@
   grid-row-end: 5;
 
   @media (max-width: $breackpoint_s) {
-    flex-grow: 1;
+    display: none;
   }
+}
 
-  @media (max-width: $breackpoint_mobile) {
+.button_forms_mobile {
+  display: none;
+  @media (max-width: $breackpoint_s) {
     width: 100%;
+    display: inline-block;
   }
-
 }
 
 .checkbox {
@@ -48,6 +57,10 @@
   grid-row-end: 4;
   grid-column-start: 1;
   grid-column-end: 3;
+
+  @media (max-width: $breackpoint_s) {
+    display: none;
+  }
 }
 
 .title {

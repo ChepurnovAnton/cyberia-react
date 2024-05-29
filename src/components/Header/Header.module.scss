@@ -3,19 +3,43 @@
 .header {
   padding-top: 65px;
   display: grid;
-  grid-template-columns: 131px 100%;
+  grid-template-columns: 131px 1fr;
+  width: 1240px;
 
-  @media (max-width:$breackpoint_s) {
-    grid-template-columns: 1fr 1fr;
+  @media(max-width: $breackpoint_xl) {
+    width: 1000px;
+  }
+
+  @media(max-width: $breackpoint_l) {
+    width: 700px;
+  }
+
+  @media(max-width: $breackpoint_m) {
+    width: 500px;
+  }
+
+  @media(max-width: $breackpoint_s) {
+    width: 375px;
+  }
+}
+
+.logo {
+  @media(max-width: $breackpoint_mobile) {
+    margin-left: 25px;
   }
 }
 
 .navigation_list {
+  margin-left: 191px;
   display: flex;
-  justify-self: center;
   gap: 60px;
 
-  @media(max-width: $breackpoint_s) {
+  @media(max-width: $breackpoint_l) {
+    margin-left: 100px;
+    gap: 30px;
+  }
+
+  @media(max-width: $breackpoint_l) {
     display: none;
   }
 }
@@ -32,17 +56,22 @@
   width: 32px;
   border: none;
   justify-self: end;
+  margin-right: 25px;
 
-  @media(max-width: $breackpoint_s) {
-    display: block;
+  @media(max-width: $breackpoint_l) {
+    display: inline-block;
   }
 
   @media(max-width: $breackpoint_mobile) {
-    display: block;
+    display: inline-block;
   }
 }
 
 .breadcrumbs {
   margin-top: 65px;
   margin-bottom: 130px;
+
+  @media(max-width: $breackpoint_mobile) {
+    margin: 46px 0 29px 25px;
+  }
 }
