@@ -1,0 +1,60 @@
+@import '../../assets/variables';
+
+.form {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 60px 140px 25px 62px;
+  gap: 40px;
+
+  @media (max-width: $breackpoint_s) {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  @media (max-width: $breackpoint_mobile) {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+
+.field_message {
+  grid-column-start: 1;
+  grid-column-end: 4;
+
+  @media (max-width: $breackpoint_mobile) {
+    height: 184px;
+  }
+}
+
+.button_forms {
+  justify-self: center;
+  grid-column-end: 3;
+  grid-row-end: 5;
+
+  @media (max-width: $breackpoint_s) {
+    flex-grow: 1;
+  }
+
+  @media (max-width: $breackpoint_mobile) {
+    width: 100%;
+  }
+
+}
+
+.checkbox {
+  grid-row-start: 3;
+  grid-row-end: 4;
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
+
+.title {
+  margin-top: 100px;
+  margin-bottom: 89px;
+  font-weight: 600;
+  font-size: 48px;
+  color: #eff3ff;
+  font-family: $fira-sans;
+}

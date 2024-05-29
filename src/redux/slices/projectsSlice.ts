@@ -1,9 +1,18 @@
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 
-const initialState = {
+interface Iproject {
+
+}
+
+interface IInitialState {
+  projects: Iproject[];
+  activeCategory: number | null
+}
+
+const initialState: IInitialState = {
   projects: [],
-  activeCategory: ''
+  activeCategory: null
 }
 
 export const projectsSlice = createSlice({

@@ -1,31 +1,36 @@
 import styles from "./Categories.module.scss";
-import { useState } from "react";
-import { useDispatch } from "react-redux";
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { changeCategory } from "../../redux/slices/projectsSlice";
 import { useGetCategoriesQuery } from "../../API/categories";
+import { RootState } from "../../redux/store";
 
-const Categories = () => {
+interface ICategory {
+  id: number;
+  name: string;
+}
+
+const Categories: React.FC = () => {
   const dispacth = useDispatch();
-
+  const activeCategory = useSelector(
+    (state: RootState) => state.projectsSlice.activeCategory
+  );
   const {
     data = [],
     error,
     isLoading,
   } = useGetCategoriesQuery("project-categories");
 
-  const [activeCategory, setActiveCategory] = useState();
-
-  const handleChangeCategory = (id) => {
-    setActiveCategory(id);
+  const handleChangeCategory = (id: number) => {
     dispacth(changeCategory(id));
   };
 
   if (isLoading) return null;
 
-  const categories = data.items;
+  const categories: ICategory[] = data.items;
 
   if (error) {
-    return `${error.error}`;
+    return `${error.data.message}`;
   }
 
   return (

@@ -1,16 +1,13 @@
 import { Route, Routes } from "react-router-dom";
-import MainPage from "./pages/MainPage/MainPage";
+import CasesPage from "./pages/CasesPage/CasesPage";
 import Contacts from "./pages/Contacts/Contacts";
-import Header from "./components/Header/Header";
-import Services from "./pages/Services/Services";
+
 function App() {
   return (
     <>
-      <Header />
       <Routes>
+        <Route path="/cases" element={<CasesPage />} />
         <Route path="/contacts" element={<Contacts />} />
-        <Route path="/cases" element={<MainPage />} />
-        <Route path="/services" element={<Services />} />
       </Routes>
     </>
   );

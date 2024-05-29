@@ -1,0 +1,28 @@
+@import '../../assets/variables';
+
+.contacts {
+  max-width: 1240px;
+  min-width: 1240px;
+  margin: 0 27px 0 27px;
+
+  @media (max-width: $breackpoint_xl) {
+    min-width: 1100px;
+  }
+
+  @media (max-width: $breackpoint_md) {
+    min-width: 786px;
+  }
+
+  @media (max-width: $breackpoint_s) {
+    min-width: 550px;
+  }
+
+  @media (max-width: $breackpoint_sm) {
+    min-width: 375px;
+  }
+
+  @media (max-width: $breackpoint_mobile) {
+    min-width: 325px;
+  }
+
+}

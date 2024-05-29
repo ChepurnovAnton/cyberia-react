@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 
 const initialState = {
-  categories: []
+  categories: [],
 }
 
 export const categoriesSlice = createSlice({
@@ -11,9 +11,9 @@ export const categoriesSlice = createSlice({
   reducers: {
     getCategories: (state, action: PayloadAction<[]>) => {
       state.categories = action.payload
-    }
+    },
   }
 })
 
-export const { getCategories } = categoriesSlice.actions
+export const { getCategories} = categoriesSlice.actions
 export default categoriesSlice.reducer

@@ -5,15 +5,26 @@
   position: relative;
 }
 
-
 .card_image {
-  width: 386px;
+  width: 385px;
   height: 378px;
   object-fit: cover;
   border-radius: 12px;
+
+  @media (max-width: $breackpoint_xl) {
+    width: 327px;
+    height: 320px;
+  }
+
+  @media (max-width: $breackpoint_s) {
+    width: 327px;
+    height: 320px;
+  }
+
+
 }
 
-.title {
+.decsription {
   display: flex;
   position: absolute;
   border-radius: 5px;
@@ -22,18 +33,53 @@
   background: #313341;
   right: 27px;
   top: 23px;
-  font-weight: 600;
-  font-size: 24px;
-  color: #fff;
-  font-family: $fira-sans;
+
   align-items: center;
   justify-content: center;
   text-align: center;
   word-wrap: normal;
+
+  @media (max-width: $breackpoint_mobile) {
+    display: none;
+  }
+
 }
 
-.title img {
+.title {
+  font-weight: 600;
+  font-size: 24px;
+  color: #fff;
+  font-family: $fira-sans;
+}
+
+.decsription img {
   position: absolute;
   top: -6px;
   right: -6px;
+}
+
+.decsription_mobile {
+  font-family: $rubik-font;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  position: absolute;
+  left: 29px;
+  bottom: 23px;
+
+  p {
+    font-weight: 400;
+    font-size: 13px;
+    color: $white;
+  }
+
+  @media (min-width: $breackpoint_mobile) {
+    display: none;
+  }
+}
+
+.title_mobile {
+  font-weight: 500;
+  font-size: 18px;
+  color: $white;
 }

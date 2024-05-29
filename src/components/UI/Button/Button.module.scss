@@ -1,0 +1,13 @@
+@import '../../../assets/variables';
+
+.button {
+  border-radius: 85px;
+  padding: 20px 45px;
+  height: 62px;
+  background-color: $button-active;
+  border: none;
+  color: $white;
+  font-weight: 400;
+  font-size: 18px;
+  font-family: $fira-sans;
+}

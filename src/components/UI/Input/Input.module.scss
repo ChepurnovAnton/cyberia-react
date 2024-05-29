@@ -1,0 +1,71 @@
+@import '../../../assets/variables';
+
+.input {
+  width: 100%;
+  height: 100%;
+  border: none;
+  background-color: transparent;
+  font-weight: 300;
+  font-size: 18px;
+  color: #eff3ff;
+  padding: 0 13px 0 13px;
+  font-family: $fira-sans;
+
+  &:focus {
+    outline: none;
+  }
+
+  @media (max-width: $breackpoint_mobile) {
+    padding: 10px;
+    font-weight: 400;
+    font-size: 13px;
+    color: #eef3ff;
+    font-family: $open-sans;
+  }
+
+  @media (max-width: $breackpoint_s) {
+    padding: 10px;
+    font-weight: 400;
+    font-size: 13px;
+    color: #eef3ff;
+    font-family: $open-sans;
+  }
+}
+
+.input::placeholder {
+  color: $white;
+
+  @media (min-width: $breackpoint_s) {
+    color: transparent;
+  }
+
+}
+
+.legend {
+  font-family: $fira-sans;
+  margin-left: 10px;
+  font-weight: 300;
+  font-size: 18px;
+  color: #eff3ff;
+  padding: 0 13px 0 13px;
+
+  @media (max-width: $breackpoint_mobile) {
+    display: none;
+  }
+
+  @media (max-width: $breackpoint_s) {
+    display: none;
+  }
+}
+
+.fieldset {
+  border: 1.50px solid #9aa8ba;
+  border-radius: 8px;
+  width: 100%;
+  height: 100%;
+}
+
+.validation_message {
+  color: red;
+  font-size: 12px;
+}

@@ -1,19 +1,48 @@
 @import '../../assets//variables';
 
 .header {
+  padding-top: 65px;
   display: grid;
-  width: 1240px;
-  grid-template-columns: 135px auto;
+  grid-template-columns: 131px 100%;
+
+  @media (max-width:$breackpoint_s) {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
 .navigation_list {
   display: flex;
   justify-self: center;
   gap: 60px;
+
+  @media(max-width: $breackpoint_s) {
+    display: none;
+  }
 }
 
 .navigation_element {
   color: $white;
   font-weight: 400;
   font-size: 18px;
+}
+
+.burger_menu {
+  display: none;
+  background-color: transparent;
+  width: 32px;
+  border: none;
+  justify-self: end;
+
+  @media(max-width: $breackpoint_s) {
+    display: block;
+  }
+
+  @media(max-width: $breackpoint_mobile) {
+    display: block;
+  }
+}
+
+.breadcrumbs {
+  margin-top: 65px;
+  margin-bottom: 130px;
 }

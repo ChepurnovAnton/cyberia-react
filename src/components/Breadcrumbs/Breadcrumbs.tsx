@@ -1,16 +1,17 @@
 import styles from "./Breadcrumbs.module.scss";
+import React from "react";
+import { useSelector } from "react-redux";
+import { RootState } from "../../redux/store";
 
-const Breadcrumbs = ({ breadcrumbsData, pathName, ...props }) => {
+const Breadcrumbs: React.FC<breadcrumbsProps> = (): JSX.Element => {
+  const activePage = useSelector((state: RootState) => state.pageSlice.activePage);
+  
   return (
-    <nav {...props}>
+    <nav>
       <div className={styles.breadcrumbs}>
         <div>Главная</div>
         <div>/</div>
-        <div>
-          {breadcrumbsData.map((item) =>
-            item.pathName === pathName ? item.title : null
-          )}
-        </div>
+        <div>{activePage}</div>
       </div>
     </nav>
   );

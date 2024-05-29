@@ -7,15 +7,37 @@ import { useGetCategoriesQuery } from "../../API/categories";
 import CircularProgress from "@mui/material/CircularProgress";
 import Box from "@mui/material/Box";
 
-const Projects = () => {
+interface IGeo {
+  lat: string | null;
+  lng: string | null;
+}
+
+interface ICategory {
+  id: number;
+  name: string;
+}
+
+interface IProject {
+  categories: ICategory[];
+  description: string;
+  geo: IGeo;
+  id: number;
+  image: string;
+  image_dark: string;
+  project_url: string | null;
+  slug: string;
+  title: string;
+}
+
+const Projects: React.FC = (): JSX.Element | string => {
   const categoryId = useSelector(
     (state: RootState) => state.projectsSlice.activeCategory
   );
 
   const { data = [], error, isLoading } = useGetCategoriesQuery("projects");
 
-  const [projectsData, setProjectsData] = useState([]);
-  const [filterProjects, setFilterData] = useState([]);
+  const [projectsData, setProjectsData] = useState<IProject[]>([]);
+  const [filterProjects, setFilterData] = useState<IProject[]>([]);
 
   useEffect(() => {
     setFilterData(projectsData);
@@ -29,19 +51,18 @@ const Projects = () => {
     getData();
   }, [data.items]);
 
-  const onFilterProjects = (id) => {
-    const filter = projectsData.filter((item) =>
-      item.categories.some((el) => el.id === id)
-    );
-    setFilterData(filter);
-  };
-
   useEffect(() => {
+    const onFilterProjects = (id: number | null) => {
+      const filter = projectsData.filter((item) =>
+        item.categories.some((el) => el.id === id)
+      );
+      setFilterData(filter);
+    };
     onFilterProjects(categoryId);
   }, [categoryId]);
 
   if (error) {
-    return `${error.error}`;
+    return `${error.data.message}`;
   }
 
   return (
@@ -58,6 +79,7 @@ const Projects = () => {
                 key={project.id}
                 image={project.image}
                 title={project.title}
+                description={project.description}
               />
             ))}
         </section>

@@ -1,7 +1,8 @@
 @import '../../assets/_variables.scss';
 
 .cases {
-  max-width: 1240px;
+  display: flex;
+  flex-direction: column;
 }
 
 .title {
@@ -9,4 +10,16 @@
   font-size: 48px;
   color: $white2;
   margin-bottom: 65px;
+
+  @media (max-width: $breackpoint_mobile) {
+    font-size: 21px;
+    margin-bottom: 45px;
+  }
+}
+
+
+@media (max-width: $breackpoint_mobile) {
+  .cases {
+    max-width: $breackpoint_mobile;
+  }
 }
