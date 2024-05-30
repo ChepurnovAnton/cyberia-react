@@ -23,7 +23,7 @@
     font-family: $open-sans;
   }
 
-  @media (max-width: $breackpoint_s) {
+  @media (max-width: $breackpoint_l) {
     padding: 10px;
     font-weight: 400;
     font-size: 13px;
@@ -35,7 +35,7 @@
 .input::placeholder {
   color: $white;
 
-  @media (min-width: $breackpoint_s) {
+  @media (min-width: $breackpoint_l) {
     color: transparent;
   }
 
@@ -49,11 +49,7 @@
   color: #eff3ff;
   padding: 0 13px 0 13px;
 
-  @media (max-width: $breackpoint_mobile) {
-    display: none;
-  }
-
-  @media (max-width: $breackpoint_s) {
+  @media (max-width: $breackpoint_l) {
     display: none;
   }
 }

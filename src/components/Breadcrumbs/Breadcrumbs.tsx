@@ -3,7 +3,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { RootState } from "../../redux/store";
 
-const Breadcrumbs: React.FC<breadcrumbsProps> = (): JSX.Element => {
+const Breadcrumbs: React.FC = (): JSX.Element => {
   const activePage = useSelector((state: RootState) => state.pageSlice.activePage);
   
   return (

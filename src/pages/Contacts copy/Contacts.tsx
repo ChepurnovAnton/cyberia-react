@@ -1,5 +1,4 @@
-import Header from "../../components/Header/Header";
-import styles from "./Contacts.module.scss";
+
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { changePage } from "../../redux/slices/pageSlice";
@@ -11,8 +10,7 @@ const Contacts = () => {
   });
 
   return (
-    <div className={styles.contacts}>
-      <Header />
+    <div>
       <div>Контакты</div>
     </div>
   );

@@ -1,5 +1,5 @@
 import styles from "./Categories.module.scss";
-import React from "react";
+import React, {useEffect} from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { changeCategory } from "../../redux/slices/projectsSlice";
 import { useGetCategoriesQuery } from "../../API/categories";
@@ -24,6 +24,11 @@ const Categories: React.FC = () => {
   const handleChangeCategory = (id: number) => {
     dispacth(changeCategory(id));
   };
+
+  useEffect(()=> {
+    dispacth(changeCategory(null));
+  },[])
+
 
   if (isLoading) return null;
 

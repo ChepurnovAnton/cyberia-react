@@ -1,22 +1,41 @@
 @import '../../assets/variables';
 
+.forms {
+  @media (max-width: $breackpoint_mobile) {
+    width: 325px;
+    margin: 0 auto;
+  }
+}
+
 .form {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 60px 140px 25px 62px;
   gap: 40px;
+  width: 1240px;
+
+  @media (max-width: $breackpoint_xl) {
+    width: 1000px;
+  }
+
+  @media (max-width: $breackpoint_l) {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 700px;
+  }
+
+  @media (max-width: $breackpoint_m) {
+    width: 500px;
+  }
 
   @media (max-width: $breackpoint_s) {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+    width: 375px;
+  }
+  @media (max-width: $breackpoint_mobile) {
+    width: 325px;
   }
 
-  @media (max-width: $breackpoint_mobile) {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
 }
 
 .field_message {
@@ -28,7 +47,7 @@
     margin-bottom: 20px;
   }
 
-  @media (max-width: $breackpoint_s) {
+  @media (max-width: $breackpoint_l) {
     height: 184px;
     margin-bottom: 20px;
   }
@@ -39,14 +58,15 @@
   grid-column-end: 3;
   grid-row-end: 5;
 
-  @media (max-width: $breackpoint_s) {
+  @media (max-width: $breackpoint_l) {
     display: none;
   }
 }
 
 .button_forms_mobile {
   display: none;
-  @media (max-width: $breackpoint_s) {
+
+  @media (max-width: $breackpoint_l) {
     width: 100%;
     display: inline-block;
   }
@@ -58,8 +78,21 @@
   grid-column-start: 1;
   grid-column-end: 3;
 
-  @media (max-width: $breackpoint_s) {
+  @media (max-width: $breackpoint_l) {
     display: none;
+  }
+  
+}
+
+.notification {
+  @media (min-width:$breackpoint_l){
+    display: none;
+  }
+  margin-top: 10px;
+  color: $white;
+  text-align: center;
+  @media(max-width: $breackpoint_mobile) {
+    font-size: 13px;
   }
 }
 
@@ -70,4 +103,26 @@
   font-size: 48px;
   color: #eff3ff;
   font-family: $fira-sans;
+
+  @media (max-width: $breackpoint_mobile) {
+    font-weight: 500;
+    font-size: 24px;
+    margin-right: 41px;
+  }
+}
+
+.icon {
+  display: none;
+
+  @media (max-width: $breackpoint_mobile) {
+    display: inline-block;
+  }
+}
+
+.title_wripper {
+  @media (max-width: $breackpoint_mobile) {
+    display: flex;
+    justify-content: space-between;
+    width: 325px;
+  }
 }

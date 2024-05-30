@@ -1,6 +1,12 @@
 import styles from "./ProjectCard.module.scss";
 
-const ProjectCard = ({ image, title, description }) => {
+interface IProjectCardProps {
+  image: string;
+  title: string;
+  description: string;
+}
+
+const ProjectCard: React.FC<IProjectCardProps>= ({ image, title, description }): JSX.Element => {
   return (
     <article className={styles.card}>
       <img className={styles.card_image} src={image} alt="проект" />

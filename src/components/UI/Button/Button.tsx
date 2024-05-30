@@ -1,6 +1,11 @@
 import styles from "./Button.module.scss";
 
-const Button = ({ value, className }) => {
+interface IButtonProps {
+  value:string;
+  className: string;
+}
+
+const Button: React.FC<IButtonProps> = ({ value, className }) => {
   return (
     <input
       className = {`${className} , ${styles.button}`}

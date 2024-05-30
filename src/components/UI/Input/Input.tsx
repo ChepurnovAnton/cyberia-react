@@ -1,7 +1,18 @@
-import React from "react";
 import styles from "./Input.module.scss";
 
-const Input = ({
+interface InputProps {
+  legendName: string;
+  register:any;
+  name: string;
+  required: boolean | string;
+  errors: any;
+  message: string;
+  value: string | RegExp;
+  validationMessage: string | never[];
+  placeHolder: string;
+}
+
+const Input: React.FC<InputProps> = ({
   legendName,
   register,
   name,
@@ -18,7 +29,7 @@ const Input = ({
         <legend className={styles.legend}>{legendName}*</legend>
         <input
           className={styles.input}
-          placeholder = {placeHolder}
+          placeholder={placeHolder}
           {...register(name, {
             required: required,
             pattern: {

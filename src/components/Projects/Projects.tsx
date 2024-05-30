@@ -5,29 +5,9 @@ import { RootState } from "../../redux/store";
 import { useState, useEffect } from "react";
 import { useGetCategoriesQuery } from "../../API/categories";
 import CircularProgress from "@mui/material/CircularProgress";
+import type { IProject } from "../../types/types";
 import Box from "@mui/material/Box";
 
-interface IGeo {
-  lat: string | null;
-  lng: string | null;
-}
-
-interface ICategory {
-  id: number;
-  name: string;
-}
-
-interface IProject {
-  categories: ICategory[];
-  description: string;
-  geo: IGeo;
-  id: number;
-  image: string;
-  image_dark: string;
-  project_url: string | null;
-  slug: string;
-  title: string;
-}
 
 const Projects: React.FC = (): JSX.Element | string => {
   const categoryId = useSelector(
@@ -59,6 +39,7 @@ const Projects: React.FC = (): JSX.Element | string => {
       setFilterData(filter);
     };
     onFilterProjects(categoryId);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [categoryId]);
 
   if (error) {

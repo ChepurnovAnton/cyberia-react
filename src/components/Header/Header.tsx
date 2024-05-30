@@ -4,19 +4,8 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import React from "react";
 import BurgerMenu from "../BurgerMenu/BurgerMenu";
+import { navigations } from "../../data/data";
 
-interface INavigation {
-  pathName: string;
-  title: string;
-}
-
-const navigations: INavigation[] = [
-  { pathName: "/agency", title: "Агенство" },
-  { pathName: "/services", title: "Услуги" },
-  { pathName: "/cases", title: "Кейсы" },
-  { pathName: "/blog", title: "Блог" },
-  { pathName: "/contacts", title: "Контакты" },
-];
 
 const Header: React.FC = (): JSX.Element => {
   const [isOpenBurger, setIsOpenBurger] = useState<boolean>(false);

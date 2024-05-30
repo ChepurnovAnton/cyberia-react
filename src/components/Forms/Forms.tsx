@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form";
 import axios from "axios";
 import { useState } from "react";
 import Checkbox from "../UI/Checkbox/Checkbox";
+import SuccessfulForm from "../UI/SuccessfulForm/SuccessfulForm";
 
 type Inputs = {
   name: string;
@@ -14,16 +15,31 @@ type Inputs = {
 const Forms = () => {
   const [emailValidation, setEmailValidation] = useState([]);
   const [phoneValidation, setPhoneValidation] = useState([]);
+  const [isDispatchStatus, setDispatchStatus] = useState<boolean>(false);
+
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm<Inputs>();
 
-  const onSubmit = async (data) => {
+  interface IData {
+    name: string;
+    email: string;
+    message: string;
+    phone: string;
+  }
+
+  const onSubmit = async (data: IData) => {
     axios
       .post("https://api.test.cyberia.studio/api/v1/feedbacks", data)
-      .then((res) => console.log(res))
+      .then((res) => {
+        if (res.status === 200) {
+          setDispatchStatus(true);
+          reset();
+        }
+      })
       .catch((error) => {
         if (error.response.status === 422) {
           setEmailValidation(error.response.data.errors.email);
@@ -38,9 +54,16 @@ const Forms = () => {
 
   return (
     <section className={styles.forms}>
-      <h2 className={styles.title}>
-        Расскажите <br /> о вашем проекте
-      </h2>
+      <div className={styles.title_wripper}>
+        <img
+          className={styles.icon}
+          src="public/icon-forms.svg"
+          alt="мобильная иконка в поле формы"
+        />
+        <h2 className={styles.title}>
+          Расскажите <br /> о вашем проекте
+        </h2>
+      </div>
       <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
         <div>
           <Input
@@ -49,7 +72,7 @@ const Forms = () => {
             required={false}
             errors={errors}
             legendName={"Ваше имя"}
-            message={false}
+            message={""}
             value={""}
             validationMessage=""
             placeHolder={"Ваше имя*"}
@@ -99,8 +122,18 @@ const Forms = () => {
         <div className={styles.checkbox}>
           <Checkbox>Согласие на обработку персональных данных</Checkbox>
         </div>
-        <Button value="Обсудить проект" className={styles.button_forms} />
-        <Button value="Отправить" className={styles.button_forms_mobile} />
+        {!isDispatchStatus ? (
+          <>
+            <Button value="Обсудить проект" className={styles.button_forms} />
+            <Button value="Отправить" className={styles.button_forms_mobile} />
+            <p className={styles.notification}>
+              Нажимая “Отправить”, Вы даете согласие на обработку персональных
+              данных
+            </p>
+          </>
+        ) : (
+          <SuccessfulForm />
+        )}
       </form>
     </section>
   );
